@@ -1,0 +1,8 @@
+﻿Указатели:
+http://www.cplusplus.com/doc/tutorial/pointers/
+
+Кога да предаваме по стойност, псевдоним и указател?
+http://www.cplusplus.com/articles/z6vU7k9E/
+
+Уроци по C++
+http://www.cplusplus.com/doc/tutorial/
