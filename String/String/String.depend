@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1554877474 source:c:\users\hristiyan hristov\desktop\oop\lab 8\string\main.cpp
+	<iostream>
+	"String.h"
+	<cstring>
+
+1554877260 source:c:\users\hristiyan hristov\desktop\oop\lab 8\string\string.cpp
+	"String.h"
+	<cstring>
+
+1554876564 c:\users\hristiyan hristov\desktop\oop\lab 8\string\string.h
+	<iostream>
+

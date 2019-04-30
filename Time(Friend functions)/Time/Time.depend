@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1554274063 source:c:\users\hristiyan hristov\desktop\oop\lab7\time\main.cpp
+	<iostream>
+	"Time.h"
+
+1554274158 source:c:\users\hristiyan hristov\desktop\oop\lab7\time\time.cpp
+	<iostream>
+	"Time.h"
+
+1554272948 c:\users\hristiyan hristov\desktop\oop\lab7\time\time.h
+
