@@ -19,69 +19,166 @@ private:
 
 public:
 
-	template<typename T>
-	class iterator 
+	class iterator
 	{
 	private:
-		T* element;
+		T* ptr;
+		size_t index;
 	public:
+
+		iterator()
+		{
+			this->ptr = nullptr;
+			this->index = -1;
+		}
+		iterator(T* _ptr, size_t _index)
+		{
+			this->ptr = _ptr;
+			this->index = index;
+		}
+		iterator(const iterator& other)
+		{
+			this->ptr = other.ptr;
+			this->index = other.index;
+		}
+		iterator& operator=(const iterator& other)
+		{
+			if (this != other)
+			{
+				delete[] this->ptr;
+				this->index = other.index;
+				this->ptr = other.ptr;
+
+			}
+		}
+		~iterator()
+		{
+			delete[] this->ptr;
+		}
+
+		T& operator*()
+		{
+			return (*ptr)[index];
+		}
+		const T& operator*() const
+		{
+			return (*ptr)[index];
+		}
+		T* operator->()
+		{
+			return &((*ptr)[index]);
+		}
+		const T* operator->() const
+		{
+			return &((*ptr)[index]);
+		}
+
+		bool operator<(const iterator& other)
+		{
+			return this->index < other.index;
+		}
+		bool operator>(const iterator& other)
+		{
+			return this->index > other.index;
+		}
+		bool operator<=(const iterator& other)
+		{
+			return this->index <= other.index;
+		}
+		bool operator>=(const iterator& other)
+		{
+			return this->index >= other.index;
+		}
+		bool operator==(const iterator& other)
+		{
+			return this->index == other.index;
+		}
+		bool operator!=(const iterator& other)
+		{
+			return this->index != other.index;
+		}
+
 		iterator& operator++()
 		{
-			return (*this)++;
+			++index;
+			return *this;
 		}
 		iterator operator++(int)
 		{
-			return ++(*this);
+			iterator iter(*this);
+			++index;
+			return iter;
 		}
 		iterator& operator--()
 		{
-			return (*this)--;
+			--index;
+			return *this;
 		}
 		iterator operator--(int)
 		{
-			return --(*this);
+			iterator iter(*this);
+			--index;
+			return iter;
+		}
+
+		iterator& operator+=(int n)
+		{
+			index += n;
+			return *this;
+		}
+		iterator& operator-=(int n)
+		{
+			index -= n;
+			return *this;
+		}
+
+		iterator operator+(int n)
+		{
+			iterator iter(*this);
+			return iter += n;
+		}
+		iterator operator-(int n)
+		{
+			iterator iter(*this);
+			return iter -= n;
 		}
 
 	};
 
-	Vector();									
-	Vector(const Vector<T>&);					
+	Vector();				
+	Vector(size_t);
+	Vector(const T&, size_t);
+	Vector(const Vector<T>&);			
+	Vector(initializer_list<T>list);
 	Vector<T>& operator=(const Vector<T>&);		
-	~Vector();									
-
-	Vector(size_t);								
-	Vector(const T&, size_t);					
-	Vector(initializer_list<T>list);			
-
+	~Vector();								
 
 	T& operator[](size_t);						
 	T& at(size_t);								
 	T& front();									
 	T& back();									
-	//iterator begin();
-	//iterator end();
+	iterator begin();
+	iterator end();
 	bool empty();								
 	size_t size()const;							
 	void reserve(size_t);						
 	size_t capacity()const;					
 	void shrink_to_fit();						
-	//iterator insert();						
-	//iterator erase();							
+	iterator insert(int, const T&);
+	iterator erase(size_t);							
 	void push_back(const T&);					
 	void pop_back();							
 	void erase(const T&);		// does not work properly TODO 
 	void erase_if(bool);
-
 	void removeAt(size_t);
 	void print();						//works
-	//oт тези никой не работи <#
-	friend bool operator==( Vector<T>&,  Vector<T>&);
-	friend bool operator!=(const Vector<T>&, const Vector<T>&);
-	friend bool operator<(const Vector<T>&, const Vector<T>&);
-	friend bool operator>(const Vector<T>&, const Vector<T>&);
-	friend bool operator<=(const Vector<T>&, const Vector<T>&);
-	friend bool operator>=(const Vector<T>&, const Vector<T>&);
-	friend void swap(Vector<T>&, Vector<T>&);
+	void swap(Vector<T>& other);
+	bool operator>(const Vector<T>& other);
+	bool operator<(const Vector<T>& other);
+	bool operator>=(const Vector<T>& other);
+	bool operator<=(const Vector<T>& other);
+	bool operator==(const Vector<T>& other);
+	bool operator!=(const Vector<T>& other);
 };
 
 template <class T>
@@ -169,14 +266,18 @@ T& Vector<T>::operator[](size_t index)
 template <class T>
 T& Vector<T>::at(size_t index)
 {
-	if (index >= 0 && index <= this->vSize - 1) 
-	 return this->vector[index];
+	if (index < this->vSize) return this->vector[index];
+	else return this->vector[this->vSize - 1];
 }
 template <class T>
 T& Vector<T>::front()
 {
 	return this->vector[0];
 }
+
+//template<class T> typename Vector<T>::iterator Vector<T>::begin(){}
+//template<typename T> typename Vector<T>::iterator Vector<T>::end(){}
+
 template <class T>
 T& Vector<T>::back()
 {
@@ -203,9 +304,16 @@ void Vector<T>::reserve(size_t newCapacity)
 template <class T>
 void Vector<T>::shrink_to_fit()
 {
-	if (this->vCapacity > vSize)
+	if (this->vCapacity > this->vSize)
 	{
-		vCapacity = vSize;
+		this->vCapacity = this->vSize;
+		T* temp = new T[vCapacity];
+		for (int i = 0; i < vSize; i++)
+		{
+			temp[i] = this->vector[i];
+		}
+		delete[] this->vector;
+		this->vector = temp;
 	}
 }
 template <class T>
@@ -246,6 +354,39 @@ void Vector<T>::erase(const T& current)
 		}
 	}
 }
+template<class T>
+typename Vector<T>::iterator Vector<T>::insert(int position, const T & element)
+{
+	if (this->vSize == this->vCapacity) this->resize();
+	T* temp = new T[vCapacity];
+	for (int i = 0; i < position; i++)
+	{
+		temp[i] = this->vector[i];
+	}
+	temp[position] = element;
+	for (int i = position + 1; i < vSize + 1; i++)
+	{
+		temp[i] = this->vector[i - 1];
+	}
+	this->vSize++;
+	delete[] this->vector;
+	this->vector = temp;
+	return Vector<T>::iterator
+	{
+		this, position
+	};
+}
+template<typename T>
+typename Vector<T>::iterator Vector<T>::erase(size_t position)
+{
+	for (int i = position; i < this->vSize - 1; i++)
+	{
+		this->vector[i] = this->vector[i + 1];
+	}
+	this->vSize--;
+	return Vector<T>::iterator{ this, position };
+}
+
 template <class T>
 void Vector<T>::erase_if(bool predicate)
 {
@@ -278,52 +419,59 @@ size_t Vector<T>::capacity()const
 }
 
 template <class T>
-bool operator==( Vector<T>& v1,  Vector<T>& v2)
+bool Vector<T>::operator==(const Vector<T>& other)
 {
-	bool result = true;
-	if (v1.size() == v2.size())
+	for (int i = 0; i < this->vSize; i++)
 	{
-		for (int i = 0; i < v1.size(); i++)
-		{
-			if (v1.vector[i] != v2.vector[i])
-			{
-				return !result;
-			}
-		}
+		if (this->vector[i] != other.vector[i]) return false;
 	}
-	else return !result;
+	return true;
 }
-template <class T>
-bool operator!=(const Vector<T>&, const Vector<T>&)
+template<class T>
+bool Vector<T>::operator!=(const Vector<T>& other)
 {
+	return !(this == &other);
+}
 
+template<typename T>
+bool Vector<T>::operator>(const Vector<T>& other)
+{
+	for (int i = 0; i < this->vSize; i++)
+	{
+		if (this->vector[i] <= other.vector[i]) return false;
+	}
+	return true;
+}
+
+template<class T>
+bool Vector<T>::operator<(const Vector<T>& other)
+{
+	for (int i = 0; i < this->vSize; i++)
+	{
+		if (this->vector[i] >= other.vector[i]) return false;
+	}
+	return true;
+}
+
+template<class T>
+bool Vector<T>::operator>=(const Vector<T>& other)
+{
+	return !(this<&other);
+}
+
+template<class T>
+bool Vector<T>::operator<=(const Vector<T>& other)
+{
+	return !(this>&other);
 }
  template <class T>
- bool operator<(const Vector<T>&, const Vector<T>&)
+ void Vector<T>::swap(Vector<T>& other)
  {
-
- }
- template <class T>
- bool operator>(const Vector<T>&, const Vector<T>&)
- {
-
- }
- template <class T>
- bool operator<=(const Vector<T>&, const Vector<T>&)
- {
-
+	 Vector<T> temp = this;
+	 this = &other;
+	 other = temp;
  }
 
- template <class T>
- bool operator>=(const Vector<T>&, const Vector<T>&)
- {
-
- }
- template <class T>
- void swap(Vector<T>&, Vector<T>&)
- {
-
- }
 template <class T>
 Vector<T>::~Vector()
 {

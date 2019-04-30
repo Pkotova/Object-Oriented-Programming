@@ -3,6 +3,8 @@
 
 #include "pch.h"
 #include "Vector.cpp"
+#include <algorithm>
+
 #include <iostream>
 using namespace std;
 
@@ -19,7 +21,7 @@ int main()
 	v.push_back(6);
 	v.push_back(0);
 	v.push_back(4);
-	//v.erase(3);		// works sometimes
+	v.erase(3);		// works sometimes
 
 	empty = v;
 	empty.print();
@@ -54,8 +56,6 @@ int main()
 	v.print();
 
 	cout << endl;
-	Vector<int> vv = { 1,2};
-	vv.print();
-	
+	Vector<int> vv = {1,2,3,3,4};
 }
 
