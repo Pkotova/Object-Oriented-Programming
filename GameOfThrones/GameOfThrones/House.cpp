@@ -120,7 +120,7 @@ void House::resizeUp()
 	Character** temp = new Character*[this->capacity];
 	for (int i = 0; i < this->size; i++)
 	{
-		temp[i] = team[i];
+		temp[i] = team[i]->clone();
 	}
 	delete[] team;
 	team = temp;
@@ -132,7 +132,7 @@ void House::resizeDown()
 	Character** temp = new Character*[this->capacity];
 	for (int i = 0; i < this->size; i++)
 	{
-		temp[i] = team[i];
+		temp[i] = team[i]->clone();
 	}
 	delete[] team;
 	team = temp;
