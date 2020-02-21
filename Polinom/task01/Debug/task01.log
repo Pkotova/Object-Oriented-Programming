@@ -1,0 +1,11 @@
+﻿  stdafx.cpp
+  Coefficient.cpp
+  Polinom.cpp
+c:\users\petya\onedrive\desktop\даниел шахънски 71868\даниел шахънски 71868\homework\task01\polinom.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\petya\onedrive\desktop\даниел шахънски 71868\даниел шахънски 71868\homework\task01\polinom.cpp(228): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\petya\onedrive\desktop\даниел шахънски 71868\даниел шахънски 71868\homework\task01\polinom.cpp(293): warning C4018: '<': signed/unsigned mismatch
+  task01.cpp
+c:\users\petya\onedrive\desktop\даниел шахънски 71868\даниел шахънски 71868\homework\task01\task01.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+c:\users\petya\onedrive\desktop\даниел шахънски 71868\даниел шахънски 71868\homework\task01\polinom.cpp(186): warning C4715: 'operator==': not all control paths return a value
+  task01.vcxproj -> C:\Users\petya\OneDrive\Desktop\Даниел Шахънски 71868\Даниел Шахънски 71868\homework\Debug\task01.exe

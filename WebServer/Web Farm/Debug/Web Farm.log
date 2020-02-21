@@ -1,0 +1,7 @@
+﻿  ServerFarm.cpp
+c:\users\user\desktop\task1_exam\web farm\serverfarm.cpp(38): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\desktop\task1_exam\web farm\serverfarm.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\desktop\task1_exam\web farm\serverfarm.cpp(119): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\desktop\task1_exam\web farm\serverfarm.cpp(121): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\desktop\task1_exam\web farm\serverfarm.cpp(151): warning C4018: '<': signed/unsigned mismatch
+  Web Farm.vcxproj -> C:\Users\User\Desktop\Task1_Exam\Debug\Web Farm.exe

@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  Catalog.cpp
+  File.cpp
+  Task.cpp
+  TextFile.cpp
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\file\task\textfile.cpp(42): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Task.vcxproj -> E:\1.СУ\1ви курс\2ри семестър\1. Обектно ориентирано програмиране\Object-Oriented-Programming\File\x64\Debug\Task.exe

@@ -1,0 +1,5 @@
+﻿  Ex1.cpp
+c:\users\petya\onedrive\desktop\ex1\ex1\ex1.cpp(26): warning C4018: '<': signed/unsigned mismatch
+c:\users\petya\onedrive\desktop\ex1\ex1\ex1.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\petya\onedrive\desktop\ex1\ex1\ex1.cpp(57): warning C4018: '<': signed/unsigned mismatch
+  Ex1.vcxproj -> C:\Users\petya\OneDrive\Desktop\Ex1\Debug\Ex1.exe

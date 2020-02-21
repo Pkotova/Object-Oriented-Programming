@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  ElfTeam.cpp
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\elfteam\elfteam\elfteam.cpp(281): warning C4018: '<': signed/unsigned mismatch
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\elfteam\elfteam\elfteam.cpp(326): warning C4018: '<': signed/unsigned mismatch
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\elfteam\elfteam\elfteam.cpp(328): warning C4018: '<': signed/unsigned mismatch
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\elfteam\elfteam\elfteam.cpp(339): warning C4018: '<': signed/unsigned mismatch
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\object-oriented-programming\elfteam\elfteam\elfteam.cpp(341): warning C4018: '<': signed/unsigned mismatch
+  ElfTeam.vcxproj -> E:\1.СУ\1ви курс\2ри семестър\1. Обектно ориентирано програмиране\Object-Oriented-Programming\ElfTeam\Debug\ElfTeam.exe

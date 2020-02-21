@@ -1,0 +1,8 @@
+﻿  lab5.cpp
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(48): error C2059: syntax error: ')'
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(49): error C2512: 'Species': no appropriate default constructor available
+  e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(15): note: see declaration of 'Species'
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(53): error C2512: 'Species': no appropriate default constructor available
+  e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(15): note: see declaration of 'Species'
+e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(59): error C2512: 'Species': no appropriate default constructor available
+  e:\1.су\1ви курс\2ри семестър\1. обектно ориентирано програмиране\lab5\lab5\lab5.cpp(15): note: see declaration of 'Species'
