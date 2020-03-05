@@ -17,17 +17,18 @@ char m = 'm', f = 'f'; // using for genders
 int main()
 {
 
-		Ruler eddard("Eddard Stark", 40, m, 5, true),
-			robbert("Robert Baratheon", 43, m, 3, true),
-			rhaegar("Rhaegar Targaryen", 30, m, 1, true),
-			tywin("Tywin Lannister", 60, m, 3, true),
-			robyn("Robyn Arryn", 14, m, 0, false),
-			edmure("Edmure Tully", 37, m, 0, false),
-			mace("Mice Tyrell", 55, m, 2, false),
-			cercei("Cercei Lannister", 40, f, 3, true),
-			daenerys("Daenerys Targeryen", 20, f, 100, true),
-			aegon("Aegon Targeryen", 18, m, 0, false),
-			drogo("Khal Drogo", 30, m, 0, false);
+	Ruler eddard("Eddard Stark", 40, m, 5, true),
+		robbert("Robert Baratheon", 43, m, 3, true),
+		rhaegar("Rhaegar Targaryen", 30, m, 1, true),
+		tywin("Tywin Lannister", 60, m, 3, true),
+		robyn("Robyn Arryn", 14, m, 0, false),
+		edmure("Edmure Tully", 37, m, 0, false),
+		mace("Mice Tyrell", 55, m, 2, false),
+		cercei("Cercei Lannister", 40, f, 3, true),
+		daenerys("Daenerys Targeryen", 20, f, 100, true),
+		aegon("Aegon Targeryen", 18, m, 0, false),
+		drogo("Khal Drogo", 30, m, 0, false),
+		stanis("Stanis Baratheon",50,m,1,false );
 
 		Advisor tyrion("Tyrion Lannister", 38, m, false, true),
 			qyburn("Qyburn", 58, m, true, true),
@@ -41,14 +42,16 @@ int main()
 			bronn("Bronn", 39, m, "Ser", 40),
 			brienne("Brienne Tarth", 30, m, "Knight ", 15),
 			greyworm("Torconudo", 28, m, "Unsullied", 30),
-			tormund("Tormund Giantsbane", 35, m, "Wildling ", 40);
+			tormund("Tormund Giantsbane", 35, m, "Wildling ", 40),
+			theHunt("Sandor Klegain", 40, m, "Knight", 50);
 
 		Servant shae("Shae", 30, f, true),
 			missandei("Missandei", 25, f, false),
 			sandor("Sandor The Hound Clegane", 40, m, true),
 			varys("Lord Varys", 43, m, true),
 			daario("Daario Naharis", 30, m, false),
-			osha("Osha", 29, f, false);
+			osha("Osha", 29, f, false),
+			podrik("Podrik", 25, m, false);
 
 		House custom;
 		custom.setName("Gryffinclaw");
@@ -81,5 +84,16 @@ int main()
 
 		cout << "Your best character: ";
 		custom.getExtreme(isBest).show();
+
+		House mariyas;
+		mariyas.setName("Mimister");
+		mariyas.setLocation("Always Angry");
+		mariyas.add(eddard);
+		mariyas.add(tyrion);
+		mariyas.add(shae);
+		mariyas.add(theHunt);
+		mariyas.showTeam();
+
+
 	 
 }
